@@ -871,7 +871,7 @@
             if (!prompt) { showError("Please enter a description."); return; }
             if (!configLoaded) { showError("Config not loaded."); return; }
             lastPromptForContinuation = prompt;
-            const messages = [ { role: "system", content: "Generate clean, single-file HTML (inc. CSS/JS). Provide ONLY raw HTML code, no explanations, comments, or ```html markdown." }, { role: "user", content: prompt } ];
+            const messages = [ { role: "system", content: "Genrate a complete html code in one html file single page without mistake and without any explanation only code, use telwind css code and animation effects advanced ui user friendly interface, animation effects, tumko mai jitna futures batayega hu usse jyada add karo aur complete code likho ok ek advance professional school ke liye, icons bhi use karna ok" }, { role: "user", content: prompt } ];
             try {
                 if (modifyContainerEl) modifyContainerEl.classList.add('hidden');
                 if (uploadLinkContainerEl) uploadLinkContainerEl.classList.add('hidden');
