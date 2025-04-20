@@ -484,7 +484,7 @@
         <div class="model-selection">
            <label for="modelSelect" class="model-select-label">Select AI Model:</label>
            <select id="modelSelect" onchange="handleModelChange()" disabled>
-               <option value="google/gemini-1.5-flash-latest">Gemini 1.5 Flash (Fast & Capable)</option>
+               <option value="google/gemini-2.5-pro-exp-03-25:free">Gemini 1.5 Flash (Fast & Capable)</option>
                <option value="google/gemini-pro">Gemini Pro</option>
                <option value="anthropic/claude-3-haiku-20240307">Claude 3 Haiku (Fast)</option>
                <option value="mistralai/mistral-7b-instruct-v0.2">Mistral 7B Instruct</option>
@@ -685,7 +685,7 @@
                 if (!config.openRouterKey || !config.githubPat || !config.githubUser || !config.githubRepo) { throw new Error("Config incomplete. Check Sheet A1-A4."); }
                 API_KEY=config.openRouterKey; GITHUB_PAT=config.githubPat; GITHUB_USERNAME=config.githubUser; GITHUB_REPO_NAME=config.githubRepo; configLoaded=true;
                 if(ghRepoNameEl) ghRepoNameEl.textContent = `${GITHUB_USERNAME}/${GITHUB_REPO_NAME}`;
-                selectedModel = modelSelectEl?.value || 'google/gemini-1.5-flash-latest';
+                selectedModel = modelSelectEl?.value || 'google/gemini-2.5-pro-exp-03-25:free';
                 console.log("Config loaded."); hideStatus(); disableCoreFunctionality(false); updateButtonStates();
             } catch (error) { console.error("Config Error:", error); showError(`FATAL: Config Error: ${error.message}. Check URL, deployment, & Sheet.`, true); disableCoreFunctionality(true); }
         }
@@ -696,7 +696,7 @@
          function showError(msg, isFatal = false) {
              if (!errorDisplayEl) return; console.error("Error:", msg);
              if (msg.includes("Rate limit")) msg = "API Rate Limit Exceeded. Wait or check OpenRouter plan.";
-             else if (msg.includes("invalid API key")) msg = "Invalid OpenRouter API Key (Check Sheet A1).";
+             else if (msg.includes("invalid API key")) msg = "Invalid request Key (Check prompts/internet connection).";
              else if (msg.includes("GitHub Error (404)")) msg = "GitHub Upload Failed (404): Repo/Path not found.";
              else if (msg.includes("GitHub Error (401)")) msg = "GitHub Upload Failed (401): Unauthorized (Check PAT in Sheet A2).";
              else if (msg.includes("GitHub Error (422)")) msg = "GitHub Upload Failed (422): Invalid Path/Encoding.";
